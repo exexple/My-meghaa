@@ -1,0 +1,460 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(135deg, #FFB6D9 0%, #D4A5E5 50%, #E8C4F2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated background hearts */
+body::before {
+    content: '💕 💖 💗 💓 💝 💕 💖 💗';
+    position: fixed;
+    top: -50px;
+    left: 0;
+    right: 0;
+    font-size: 40px;
+    opacity: 0.1;
+    animation: float 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Page Structure */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Typography */
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #8B4789;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(139, 71, 137, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.page-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #8B4789;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(139, 71, 137, 0.2);
+}
+
+.message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #6B3768;
+    text-align: center;
+    line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+
+/* Gift Section */
+.gift-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.gift-message {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    color: #8B4789;
+    margin-bottom: 30px;
+}
+
+.gift-button {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 20px 50px;
+    background: linear-gradient(135deg, #FF69B4, #DDA0DD);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.gift-button:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
+}
+
+/* Audio Player */
+.audio-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.audio-player {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(221, 160, 221, 0.3));
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(139, 71, 137, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.audio-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF69B4, #DDA0DD);
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.audio-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.6);
+}
+
+.audio-info {
+    flex: 1;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(139, 71, 137, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #FF69B4, #DDA0DD);
+    border-radius: 10px;
+    transition: width 0.1s ease;
+}
+
+.time-info {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #8B4789;
+    text-align: center;
+}
+
+.audio-note {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.3rem;
+    color: #8B4789;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.photo-card {
+    display: flex;
+    justify-content: center;
+}
+
+.polaroid {
+    background: white;
+    padding: 20px;
+    padding-bottom: 60px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(139, 71, 137, 0.3);
+    transition: all 0.3s ease;
+    transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 15px 40px rgba(139, 71, 137, 0.5);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+}
+
+.photo-caption {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #6B3768;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.love-message {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(221, 160, 221, 0.3));
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(139, 71, 137, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.love-message p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #8B4789;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* Final Message */
+.final-message {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(221, 160, 221, 0.3));
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(139, 71, 137, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.final-message p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: #6B3768;
+    line-height: 2;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.final-love {
+    font-size: 2rem !important;
+    color: #8B4789 !important;
+    font-weight: bold;
+    text-align: center !important;
+    margin-top: 40px !important;
+}
+
+.kiss {
+    font-size: 2.5rem !important;
+    text-align: center !important;
+    color: #FF69B4 !important;
+    margin-top: 20px !important;
+}
+
+.hearts {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 40px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.hearts span {
+    display: inline-block;
+    margin: 0 10px;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.hearts span:nth-child(1) { animation-delay: 0s; }
+.hearts span:nth-child(2) { animation-delay: 0.2s; }
+.hearts span:nth-child(3) { animation-delay: 0.4s; }
+.hearts span:nth-child(4) { animation-delay: 0.6s; }
+.hearts span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 20px;
+}
+
+.nav-btn {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #FF69B4, #DDA0DD);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.6);
+}
+
+.nav-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .message {
+        font-size: 1.4rem;
+    }
+    
+    .gift-message {
+        font-size: 1.5rem;
+    }
+    
+    .gift-button {
+        font-size: 1.5rem;
+        padding: 15px 35px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .polaroid img {
+        height: 250px;
+    }
+    
+    .final-message {
+        padding: 30px 20px;
+    }
+    
+    .final-message p {
+        font-size: 1.3rem;
+    }
+    
+    .audio-player {
+        padding: 25px;
+    }
+    
+    .audio-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .nav-btn {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .page-title {
+        font-size: 1.6rem;
+    }
+    
+    .message {
+        font-size: 1.2rem;
+    }
+    
+    .final-message p {
+        font-size: 1.1rem;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-btn {
+        width: 100%;
+    }
+}

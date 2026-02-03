@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beloved Megha 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page 1: Welcome Message -->
+    <div class="page active" id="page1">
+        <div class="content">
+            <h1 class="main-title">Happy 2nd Month My Love 💖</h1>
+            <p class="message">Thank you for all you did and sorry for being so stupid and hurting you.</p>
+            
+            <div class="gift-section">
+                <p class="gift-message">I have a gift for you, wanna see?</p>
+                <button class="gift-button" onclick="goToPage(2)">YESSSS PLEASEEEE</button>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn next-btn" onclick="goToPage(2)">NEXT →</button>
+        </div>
+    </div>
+
+    <!-- Page 2: Audio Player -->
+    <div class="page" id="page2">
+        <div class="content">
+            <h2 class="page-title">A Special Song For You 🎵</h2>
+            
+            <div class="audio-container">
+                <div class="audio-player">
+                    <audio id="audioPlayer">
+                        <source src="your-audio-file.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    
+                    <div class="audio-controls">
+                        <button class="audio-btn" id="playBtn" onclick="togglePlay()">
+                            <span id="playIcon">▶️</span>
+                        </button>
+                        <div class="audio-info">
+                            <div class="progress-bar">
+                                <div class="progress" id="progress"></div>
+                            </div>
+                            <div class="time-info">
+                                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="audio-note">🎧 Play this with your heart 💕</p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn prev-btn" onclick="goToPage(1)">← PREVIOUS</button>
+            <button class="nav-btn next-btn" onclick="goToPage(3)">NEXT →</button>
+        </div>
+    </div>
+
+    <!-- Page 3: Photo Gallery -->
+    <div class="page" id="page3">
+        <div class="content">
+            <h2 class="page-title">Our Beautiful Moments 💐</h2>
+            
+            <div class="photo-gallery">
+                <div class="photo-card">
+                    <div class="polaroid">
+                        <img src="image1.jpg" alt="Rose for you">
+                        <p class="photo-caption">Here's a rose for you 🌹</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="polaroid">
+                        <img src="image2.jpg" alt="Sorry">
+                        <p class="photo-caption">Kaan pakad liye aapke liye 🙏</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="polaroid">
+                        <img src="image3.jpg" alt="Us">
+                        <p class="photo-caption">Ye lo mera dil ✨</p>
+                    </div>
+                </div>
+                
+                <div class="photo-card">
+                    <div class="polaroid">
+                        <img src="image4.jpg" alt="Together">
+                        <p class="photo-caption">Ye dekho hum saathme kitne acche dikhte hai 💑</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="love-message">
+                <p>I lovss you Megha. Bohut bhal pau tumk. Bohut bohut bohut bohute besi. Life r best part hoi tumi. Life r sobotke meaningful lesson hoi tumi. I love you jaaan. 💕✨</p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn prev-btn" onclick="goToPage(2)">← PREVIOUS</button>
+            <button class="nav-btn next-btn" onclick="goToPage(4)">NEXT →</button>
+        </div>
+    </div>
+
+    <!-- Page 4: Final Message -->
+    <div class="page" id="page4">
+        <div class="content">
+            <h2 class="page-title">To My Everything 💖</h2>
+            
+            <div class="final-message">
+                <p>So Meghaa, happy 2nd month anniversary! Time kiman joldi goi ase gomei pua nai but uk I feel so great. Ketiau bhaba nasilu mur nisina ata lora bhal hobo, ketiau bhaba nasilu mur nisina ata lora e nijoke change koribo, ketiau bhaba nasilu ke moi mandir jam bur tumi muk rasta dekhala.</p>
+                
+                <p>Tumi muk change korila and dekhala muk je kiman bostu ase jibur t moi bhal hobo lage. Moi janu moi imanu bhal nohoi moi janu life t bohut bhul korisu but moi first time bisarisu je moi bhal hou, moi bisaru je moi theek hou and nijoke change koru. Tumar karone, amar marone and amar bhal puar karone.</p>
+                
+                <p>Life t jodi sob heari u jau no mur mon bea nelage bas tumi mur lgt thakilei hol and hekarone moi sob kori dim.</p>
+                
+                <p class="final-love">I loveeee youuuu Megha, bohut bohut bohuteeeee besiiii bhal pau tumk. 💕💕💕</p>
+                
+                <p class="kiss">Muwahhhh 💋💋💋</p>
+            </div>
+            
+            <div class="hearts">
+                <span>💖</span><span>💕</span><span>💗</span><span>💓</span><span>💝</span>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn prev-btn" onclick="goToPage(3)">← PREVIOUS</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
